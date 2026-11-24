@@ -1,0 +1,25 @@
+[project]
+name = "mcp-example"
+version = "0.1.0"
+description = "Minimal MCP server for the qauto REST API"
+readme = "README.md"
+authors = [
+    { name = "ievgen", email = "0663132300@ukr.net" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=2.3.0",
+    "pydantic>=2.14.3",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+qauto-mcp = "qauto_mcp.__main__:main"
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "qauto_mcp"

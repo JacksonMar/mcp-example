@@ -1,0 +1,21 @@
+# Local environment and tools
+.venv
+.git
+.cursor
+.idea
+.claude
+.ruff_cache
+**/__pycache__
+**/.DS_Store
+
+# Secrets: never in the image
+.env
+
+# Docs (README.md stays: pyproject.toml references it)
+*.md
+!README.md
+
+# Docker files themselves
+Dockerfile
+compose.yaml
+.dockerignore

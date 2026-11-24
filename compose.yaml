@@ -1,0 +1,30 @@
+services:
+  qauto-mcp:
+    build: .
+    image: qauto-mcp:local
+    ports:
+      # Host side only on loopback: the server has no auth, do not expose it to the LAN by default.
+      - "127.0.0.1:8000:8000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # Overrides .env. 0.0.0.0 is required: 127.0.0.1 inside a container is the container itself.
+      MCP_HOST: "0.0.0.0"
+      MCP_PORT: "8000"
+      MCP_TRANSPORT: streamable-http
+      # INFO by default; for one run: DOCKER_LOG_LEVEL=DEBUG docker compose up -d
+      LOG_LEVEL: ${DOCKER_LOG_LEVEL:-INFO}
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')",
+        ]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 10s

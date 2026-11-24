@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "pycharm": {
+      "url": "http://127.0.0.1:64462/stream",
+      "type": "http",
+      "headers": {
+        "IJ_MCP_LAUNCH_ORIGIN": "${IJ_MCP_LAUNCH_ORIGIN:-}"
+      }
+    },
+    "mcp-example": {
+      "type": "http",
+      "url": "http://127.0.0.1:8000/mcp",
+      "headers": {
+        "QAUTO_EMAIL": "${QAUTO_EMAIL:-}",
+        "QAUTO_PASSWORD": "${QAUTO_PASSWORD:-}"
+      }
+    }
+  }
+}
