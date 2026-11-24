@@ -11,3 +11,8 @@ wheels/
 
 # Secrets
 .env
+
+# OS / IDE / local tools
+.DS_Store
+.idea/
+.claude/
